@@ -6,7 +6,7 @@ namespace CadastrarProduto.Repository
 {
     public class ProdutoRepository(IConfiguration configuration)
     {
-        private readonly string _conexaoMySQL = configuration.GetConnectionString("ConexaoMySQL");
+        private readonly string _conexaoMySQL = configuration.GetConnectionString("MySQLConnection");
         
         public void CadastrarProduto(Produto produto)
         {

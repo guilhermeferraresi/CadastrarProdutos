@@ -6,7 +6,7 @@ namespace CadastrarProduto.Repository
 {
     public class UsuarioRepository(IConfiguration configuration)
     {
-        private readonly string _conexaoMySQL = configuration.GetConnectionString("ConexaoMySQL");
+        private readonly string _conexaoMySQL = configuration.GetConnectionString("MySQLConnection");
         public Usuario ObterUsuario(string email)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
@@ -22,7 +22,7 @@ namespace CadastrarProduto.Repository
                     {
                         usuario = new Usuario
                         {
-                            Id = Convert.ToInt32(dr["Id"]),
+                            Id = Convert.ToInt32(dr["IdUser"]),
                             Nome = dr["Nome"].ToString(),
                             Email = dr["Email"].ToString(),
                             Senha = dr["Senha"].ToString()
