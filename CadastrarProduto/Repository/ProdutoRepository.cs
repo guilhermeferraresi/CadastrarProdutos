@@ -7,33 +7,8 @@ namespace CadastrarProduto.Repository
     public class ProdutoRepository(IConfiguration configuration)
     {
         private readonly string _conexaoMySQL = configuration.GetConnectionString("ConexaoMySQL");
-        public Produto ObterProduto(string nome)
-        {
-            using (var conexao = new MySqlConnection(_conexaoMySQL))
-            {
-                conexao.Open();
-                MySqlCommand cmd = new("SELECT * FROM tbProdutos WHERE Nome = @nome", conexao);
-                cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
-
-                using (MySqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection))
-                {
-                    Produto produto = null;
-                    if (dr.Read())
-                    {
-                        produto = new Produto
-                        {
-                            Id = Convert.ToInt32(dr["Id"]),
-                            Nome = dr["Nome"].ToString(),
-                            Descricao = dr["Descricao"].ToString(),
-                            Preco = Convert.ToDecimal(dr["Preco"]),
-                            Quantidade = Convert.ToInt32(dr["Quantidade"]),
-                        };
-                    }
-                    return produto;
-                }
-            }
-        }
-        public void AdicionarProduto(Produto produto)
+        
+        public void CadastrarProduto(Produto produto)
         {
             using (var conexao = new MySqlConnection(_conexaoMySQL))
             {
