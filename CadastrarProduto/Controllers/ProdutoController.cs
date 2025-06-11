@@ -11,16 +11,16 @@ namespace CadastrarProduto.Controllers
         {
             _produtoRepository = produtoRepository;
         }
-        public IActionResult Cadastro()
+        public IActionResult CadastroProduto()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Cadastro(Produto produto)
+        public IActionResult CadastroProduto(Produto produto)
         {
             if (ModelState.IsValid)
             {
-                _produtoRepository.AdicionarProduto(produto);
+                _produtoRepository.CadastrarProduto(produto);
 
                 //return RedirectToAction(" ");
             }

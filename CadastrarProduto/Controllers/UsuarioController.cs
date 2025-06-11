@@ -11,12 +11,12 @@ namespace CadastrarProduto.Controllers
         {
             _usuarioRepository = usuarioRepository;
         }
-        public IActionResult Cadastro()
+        public IActionResult CadastroUsuario()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Cadastro(Usuario usuario)
+        public IActionResult CadastroUsuario(Usuario usuario)
         {
             if (ModelState.IsValid)
             {
