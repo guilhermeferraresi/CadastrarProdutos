@@ -1,7 +1,11 @@
+using CadastrarProduto.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<UsuarioRepository>();
+builder.Services.AddScoped<ProdutoRepository>();
 
 var app = builder.Build();
 
