@@ -76,7 +76,7 @@ namespace CadastrarProduto.Repository
                 // Abre a conexão com o banco de dados MySQL
                 conexao.Open();
                 // Cria um novo comando SQL para selecionar um registro da tabela 'Produto' com base no código
-                MySqlCommand cmd = new MySqlCommand("SELECT * from tbProduto where id=@id ", conexao);
+                MySqlCommand cmd = new MySqlCommand("SELECT * from tbProdutos where id=@id ", conexao);
 
                 // Adiciona um parâmetro para o código a ser buscado, definindo seu tipo e valor
                 cmd.Parameters.AddWithValue("@id", Id);
