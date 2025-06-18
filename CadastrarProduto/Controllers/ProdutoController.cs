@@ -11,6 +11,10 @@ namespace CadastrarProduto.Controllers
         {
             _produtoRepository = produtoRepository;
         }
+        public IActionResult Index()
+        {
+            return View(_produtoRepository.TodosOsProdutos());
+        }
         public IActionResult CadastroProduto()
         {
             return View();
