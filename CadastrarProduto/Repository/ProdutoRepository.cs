@@ -55,7 +55,7 @@ namespace CadastrarProduto.Repository
                     Produtolist.Add(
                                 new Produto
                                 {
-                                    Id = Convert.ToInt32(dr["id"]), // Converte o valor da coluna "id" para inteiro
+                                    Id = Convert.ToInt32(dr["idprod"]), // Converte o valor da coluna "id" para inteiro
                                     Nome = ((string)dr["nome"]), // Converte o valor da coluna "nome" para string
                                     Descricao = ((string)dr["descricao"]), // Converte o valor da coluna "descricao" para string
                                     Preco = Convert.ToDecimal(dr["preco"]),
@@ -76,10 +76,10 @@ namespace CadastrarProduto.Repository
                 // Abre a conexão com o banco de dados MySQL
                 conexao.Open();
                 // Cria um novo comando SQL para selecionar um registro da tabela 'Produto' com base no código
-                MySqlCommand cmd = new MySqlCommand("SELECT * from tbProdutos where id=@id ", conexao);
+                MySqlCommand cmd = new MySqlCommand("SELECT * from tbProdutos where idprod=@idprod", conexao);
 
                 // Adiciona um parâmetro para o código a ser buscado, definindo seu tipo e valor
-                cmd.Parameters.AddWithValue("@id", Id);
+                cmd.Parameters.AddWithValue("@idprod", Id);
 
                 // Cria um adaptador de dados (não utilizado diretamente para ExecuteReader)
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -97,7 +97,7 @@ namespace CadastrarProduto.Repository
                 while (dr.Read())
                 {
                     // Preenche as propriedades do objeto Produto com os valores da linha atual
-                    Produto.Id = Convert.ToInt32(dr["id"]);//propriedade Id e convertendo para int
+                    Produto.Id = Convert.ToInt32(dr["idprod"]);//propriedade Id e convertendo para int
                     Produto.Nome = (string)(dr["nome"]); // propriedade Nome e passando string
                     Produto.Descricao = (string)(dr["descricao"]); //propriedade descricao e passando string
                     Produto.Preco = Convert.ToDecimal(dr["preco"]); //propriedade preco e passando int

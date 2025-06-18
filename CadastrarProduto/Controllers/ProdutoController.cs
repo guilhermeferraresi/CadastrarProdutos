@@ -26,7 +26,7 @@ namespace CadastrarProduto.Controllers
             {
                 _produtoRepository.CadastrarProduto(produto);
 
-                //return RedirectToAction(" ");
+                return RedirectToAction("Index");
             }
             return View(produto);
         }

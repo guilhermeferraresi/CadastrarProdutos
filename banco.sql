@@ -1,4 +1,4 @@
-drop database dbCadastrarProduto ;
+create database dbCadastrarProduto ;
 use dbCadastrarProduto;
 
 create table tbUsuarios(

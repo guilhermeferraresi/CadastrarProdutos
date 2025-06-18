@@ -36,7 +36,7 @@ namespace CadastrarProduto.Controllers
             var usuario = _usuarioRepository.ObterUsuario(email);
             if (usuario != null && usuario.Senha == senha)
             {
-                return RedirectToAction("Home", "Index");
+                return RedirectToAction("Index", "Produto");
             }
 
             ModelState.AddModelError("", "Email ou senha inválidos.");
